@@ -1,0 +1,90 @@
+.banner {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.banner .product{
+    /* background-color: red; */
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: 0.7s;   
+    --start: 900px;
+    display: flex;
+}
+.banner .product .soda {
+    background:
+    var(--url) var(--start) 0 ,url(images/mockup.png);
+    background-size: auto 100%;
+    width: 280px;
+    aspect-ratio: 2/4;
+    background-blend-mode: multiply;
+    mask-image: url(images/mockup.png);
+    mask-size: auto 100%;
+    transition: 0.7s;
+    position: absolute;
+    left: 50% ;
+    transform: translateX(-50%);
+    
+
+
+}
+
+.banner .product:hover{
+    --start: -300px;
+    transform: translateX(-50%) translateY(-120px) ;
+}
+
+.banner .rock {
+    position: absolute;
+    inset: 0 0 0 0;
+    pointer-events: none;
+}
+.banner .rock img{
+    position: absolute;
+    transition: 0.7s;
+}
+
+.banner .rock img:nth-child(1){
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+   
+
+}
+.banner:has(.product:hover) .rock img:nth-child(1){
+    transform: translateX(-50%) translateY(50px)  ;
+}
+.banner .rock img:nth-child(2){
+    height: 50%;
+    left: 0;
+   
+    bottom: 0px;
+
+}
+.banner:has(.product:hover) .rock img:nth-child(2){
+    transform: translateX(-100px) translateY(100px) ;
+
+}
+
+.banner .rock img:nth-child(3){
+    height: 100%;
+    right: 0;
+    bottom: -100px;
+    rotate: -25deg;
+
+}
+.banner:has(.product:hover) .rock img:nth-child(3){
+    transform: translateX(100px) translateY(100px) ;
+    
+}
+.banner .product .soda:nth-child(2){
+    opacity: 0;
+}
+.banner .product:hover .soda:nth-child(2){
+    opacity: 1;
+}
